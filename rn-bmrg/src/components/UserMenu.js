@@ -14,10 +14,10 @@ class UserMenu extends Component {
 
     render() {
         return (
-                <Stack.Navigator>
-                    <Stack.Screen name="SearchUsers" component={SearchUsers} options={{ headerShown: false }} />
-                    <Stack.Screen name="User" component={User} options={{ headerShown: false }} />
-                </Stack.Navigator>
+            <Stack.Navigator>
+                <Stack.Screen name="SearchUsers" component={SearchUsers} options={{ headerShown: false }} />
+                <Stack.Screen name="User" component={User} options={{ headerShown: false }} />
+            </Stack.Navigator>
         );
     }
 }

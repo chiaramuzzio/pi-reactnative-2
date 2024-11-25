@@ -21,18 +21,17 @@ class Home extends Component {
                 this.props.navigation.navigate("Login");
             } else {
                 db.collection("users")
-                    .where("email", "==", auth.currentUser.email)
-                    .onSnapshot(snapshot => {
-                        if (!snapshot.empty) {
-                            const doc = snapshot.docs[0];
-                            this.setState({ user: doc.data().user });
-                        }
-                    });
+                .where("email", "==", auth.currentUser.email)
+                .onSnapshot(snapshot => {
+                    if (!snapshot.empty) {
+                        const doc = snapshot.docs[0];
+                        this.setState({ user: doc.data().user });
+                    }
+                });
             }
         });
 
         this.fetchPosts();
-
     }
 
     fetchPosts = () => {
@@ -63,6 +62,10 @@ class Home extends Component {
         if (this.state.posts.length === 0) {
             return (
                 <View style={styles.container}>
+                    <View style={styles.header}>
+                        {/* <Text style={styles.title}>Inicio</Text> */}
+                        <AntDesign name="twitter" size={34} color="#1DA1F2" />
+                    </View>
                     <Text>No hay posts</Text>
                 </View>
             );

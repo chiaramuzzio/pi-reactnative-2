@@ -15,17 +15,6 @@ class Register extends Component {
         };
     }
 
-    // handleSignOut = () => {
-    //     auth.signOut()
-    //         .then(() => {
-    //             console.log("Cerro sesion bien");
-    //             this.props.navigation.navigate('Login');
-    //         })
-    //         .catch((error) => {
-    //             console.error("Error al cerrar sesión: ", error);
-    //         });
-    // };
-
     handleSubmit = () => {
         auth.createUserWithEmailAndPassword(this.state.email, this.state.password)
             .then(response => {
@@ -37,8 +26,7 @@ class Register extends Component {
             })
             .then(() => {
                 this.setState({ registered: true });
-                this.props.navigation.navigate("Login");
-                // this.handleSignOut();   // Fijarse si esta bien
+                this.props.navigation.navigate("HomeMenu");
             })
             .catch(error => {
                 this.setState({ error: error });

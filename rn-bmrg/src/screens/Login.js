@@ -11,13 +11,14 @@ class Login extends Component {
       errors: [],
     };
   }
-
-  componentDidMount() {
-    if (auth.currentUser) {
-      console.log("Usuario ya logueado: ", auth.currentUser.email);
-      this.props.navigation.navigate("HomeMenu"); 
-    }
-  }
+  
+  componentDidMount(){
+    auth.onAuthStateChanged((user)=>{
+        if (user){
+            this.props.navigation.navigate("HomeMenu")
+        }
+    })
+}
 
   login = () => {
     const { email, password } = this.state;

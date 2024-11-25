@@ -67,6 +67,18 @@ class Profile extends Component {
         }
     }
 
+    handleDelete = (id) => {
+        db.collection('posts')
+            .doc(id).delete()
+            .then(() => {
+                console.log('eliminado correctamente');
+            })
+            .catch((error) => {
+                console.error('Error al eliminar el post', error);
+            });
+    };
+
+
     handleSignOut = () => {
         auth.signOut()
             .then(() => {

@@ -16,6 +16,14 @@ class HomeMenu extends Component {
             loading: true
         };
     }
+    
+    componentDidMount() {
+        auth.onAuthStateChanged(user => {
+            if (!user) {
+                this.props.navigation.navigate("Login");
+            }
+        });
+    }
 
     render() {
         return (

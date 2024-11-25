@@ -37,6 +37,7 @@ class Register extends Component {
             })
             .then(() => {
                 this.setState({ registered: true });
+                this.props.navigation.navigate("Login");
                 // this.handleSignOut();   // Fijarse si esta bien
             })
             .catch(error => {

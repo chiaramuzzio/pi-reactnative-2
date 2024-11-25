@@ -17,15 +17,6 @@ class HomeMenu extends Component {
         };
     }
 
-    componentDidMount() {
-        auth.onAuthStateChanged(user => {
-            if (!user) {
-                this.props.navigation.navigate("Login");
-            }
-        });
-        this.setState({ loading: false });
-    }
-
     render() {
         return (
             <Tab.Navigator screenOptions={{ tabBarShowLabel: false, headerShown: false }}>
